@@ -3,6 +3,7 @@ const path = require("path");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const cors = require("cors");
+const corsOption = require("./config/corsOptions");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,28 +11,16 @@ const port = process.env.PORT || 5000;
 // Custom middleware logger
 app.use(logger);
 
-const whiteList = ["https://www.google.com/"];
-const corsOption = {
-  origin: (origin, callback) => {
-    if (whiteList.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
 app.use(cors(corsOption));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // serve static files
 app.use("/", express.static(path.join(__dirname, "/public")));
-app.use("/subdir", express.static(path.join(__dirname, "/public")));
+ 
 
 // routes
 app.use("/", require("./routes/root"));
-app.use("/subdir", require("./routes/subdir"));
 app.use("/employees", require("./routes/api/employees"));
 
 app.all("*", (req, res) => {

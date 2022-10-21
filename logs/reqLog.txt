@@ -125,3 +125,4 @@
 20221022	00:45:06	0fb1a5e0-9bbf-4af4-a07e-3d63f6181aba	GET	undefined	/employees/1
 20221022	00:45:10	f4a18ef2-a054-4fef-a3f9-aac55eb2e5ec	GET	undefined	/employees/3
 20221022	00:45:14	6f375eb8-3c91-4052-b572-2a1a81ba31ed	GET	undefined	/employees/5
+20221022	00:52:51	d7e3df26-77b2-45f6-abed-3b40052ee871	GET	undefined	/employees
