@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000;
 
 // Custom middleware logger
 app.use(logger);
+
 const whiteList = ["https://www.google.com/"];
 const corsOption = {
   origin: (origin, callback) => {
@@ -23,51 +24,15 @@ const corsOption = {
 app.use(cors(corsOption));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "/public")));
 
-app.get("^/$|/index(.html)?", (req, res) => {
-  // res.sendFile("./views/index.html", { root: __dirname });
-  res.sendFile(path.join(__dirname, "views", "index.html"));
-});
+// serve static files
+app.use("/", express.static(path.join(__dirname, "/public")));
+app.use("/subdir", express.static(path.join(__dirname, "/public")));
 
-app.get("/new-page(.html)?", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "new-page.html"));
-});
-
-app.get("/old-page(.html)?", (req, res) => {
-  res.redirect(301, "/new-page.html");
-});
-
-// Routes Handlers
-app.get(
-  "/hello(.html)?",
-  (req, res, next) => {
-    console.log("Calling middleware");
-    console.log("attempted to load hello.html");
-    next();
-  },
-  (req, res) => {
-    res.send("Hello world");
-  }
-);
-
-const one = (req, res, next) => {
-  console.log("Calling One");
-  next();
-};
-
-const two = (req, res, next) => {
-  console.log("Calling tow");
-  next();
-};
-
-const three = (req, res, next) => {
-  res.send("Finished");
-  console.log("Calling three");
-  next();
-};
-
-app.get("/chain(.html)?", [one, two, three]);
+// routes
+app.use("/", require("./routes/root"));
+app.use("/subdir", require("./routes/subdir"));
+app.use("/employees", require("./routes/api/employees"));
 
 app.all("*", (req, res) => {
   res.status(404);
