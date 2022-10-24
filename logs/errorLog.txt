@@ -1,7 +1,0 @@
-20221021	18:25:10	524983c1-3e97-453c-9ab3-af3254d897b0	Error: Not allowed by CORS
-20221022	00:03:08	9b9a0b65-109f-4ec2-bb39-25560b614a62	Error: ENOENT: no such file or directory, stat 'F:\Learning\Youtube\Dave-Gray\Complete-NodeJs-Start\views\test.html'
-20221022	00:03:13	830de900-d291-4c5e-8fd4-4a6dd7357775	Error: ENOENT: no such file or directory, stat 'F:\Learning\Youtube\Dave-Gray\Complete-NodeJs-Start\views\test.html'
-20221022	00:07:19	7152ee91-433a-421a-adf7-44ba9f647557	Error: ENOENT: no such file or directory, stat 'F:\Learning\Youtube\Dave-Gray\Complete-NodeJs-Start\views\test.html'
-20221022	00:07:42	17bd0916-69e3-4086-a006-ae8d68b97ba2	Error: ENOENT: no such file or directory, stat 'F:\Learning\Youtube\Dave-Gray\Complete-NodeJs-Start\routes\views\test.html'
-20221022	00:08:15	904d6593-c52a-4a42-b5ff-bf46c8f07fc2	Error: ENOENT: no such file or directory, stat 'F:\Learning\Youtube\Dave-Gray\Complete-NodeJs-Start\views\test.html'
-20221022	00:15:01	af189c39-4c35-4c2c-aa6d-73eaae983e5a	Error: ENOENT: no such file or directory, stat 'F:\Learning\Youtube\Dave-Gray\Complete-NodeJs-Start\views\test.html'
